@@ -1,0 +1,34 @@
+[
+	 { 
+"name" : "alice" , 
+"age" : 21 , 
+"sex" : "W" , 
+"isWork" : false , 
+"isStudent" : true , 
+"weight" : 65.2 
+ 	 }, 
+	 { 
+"name" : "ryan" , 
+"age" : 33 , 
+"sex" : "M" , 
+"isWork" : true , 
+"isStudent" : false , 
+"weight" : 70.3 
+ 	 }, 
+	 { 
+"name" : "vasya" , 
+"age" : 44 , 
+"sex" : "M" , 
+"isWork" : false , 
+"isStudent" : false , 
+"weight" : 95.4 
+ 	 }, 
+	 { 
+"name" : "max" , 
+"age" : 33 , 
+"sex" : "M" , 
+"isWork" : true , 
+"isStudent" : true , 
+"weight" : 88.5 
+ 	 }
+ ]

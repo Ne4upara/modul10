@@ -1,0 +1,5 @@
+name age sex isWork isStudent weight
+alice 21 W false true 65.2
+ryan 33 M true false 70.3
+vasya 44 M false false 95.4
+max 33 M true true 88.5
