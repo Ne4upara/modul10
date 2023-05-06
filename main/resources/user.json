@@ -5,7 +5,8 @@
 "sex" : "W" , 
 "isWork" : false , 
 "isStudent" : true , 
-"weight" : 65.2 
+"weight" : 65.22 , 
+"heigth" : 1.60 
  	 }, 
 	 { 
 "name" : "ryan" , 
@@ -13,7 +14,8 @@
 "sex" : "M" , 
 "isWork" : true , 
 "isStudent" : false , 
-"weight" : 70.3 
+"weight" : 70.34 , 
+"heigth" : 1.82 
  	 }, 
 	 { 
 "name" : "vasya" , 
@@ -21,7 +23,8 @@
 "sex" : "M" , 
 "isWork" : false , 
 "isStudent" : false , 
-"weight" : 95.4 
+"weight" : 95.44 , 
+"heigth" : 1.76 
  	 }, 
 	 { 
 "name" : "max" , 
@@ -29,6 +32,7 @@
 "sex" : "M" , 
 "isWork" : true , 
 "isStudent" : true , 
-"weight" : 88.5 
+"weight" : 88.54 , 
+"heigth" : 1.90 
  	 }
  ]

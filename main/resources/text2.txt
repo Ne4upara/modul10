@@ -1,5 +1,5 @@
-name age sex isWork isStudent weight
-alice 21 W false true 65.2
-ryan 33 M true false 70.3
-vasya 44 M false false 95.4
-max 33 M true true 88.5
+name age sex isWork isStudent weight heigth
+alice 21 W false true 65.22 1.60
+ryan 33 M true false 70.34 1.82
+vasya 44 M false false 95.44 1.76
+max 33 M true true 88.54 1.90

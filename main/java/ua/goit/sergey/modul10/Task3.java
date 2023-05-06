@@ -7,6 +7,7 @@ import static java.util.stream.Collectors.toMap;
 public class Task3 {
 
     private final File file;
+    private Map<String, Integer> wordToCount;
 
     public Task3 (String file){
         this(new File(file));
@@ -16,8 +17,16 @@ public class Task3 {
         this.file = file;
     }
 
-    public void searchWord() throws IOException {
-        Map<String, Integer> wordToCount = new HashMap<>();
+    public void searchWord() {
+        read();
+        sortedWord();
+        for (Object sor : wordToCount.keySet()) {
+            System.out.println(sor + " " + wordToCount.get(sor));
+        }
+    }
+
+    private void read() {
+        wordToCount = new HashMap<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String words = (br.readLine());
@@ -32,11 +41,12 @@ public class Task3 {
                 }
                 words = br.readLine();
             }
-
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+    }
 
+    private void sortedWord() {
         Map<String, Integer> sorted = wordToCount
                 .entrySet()
                 .stream()
@@ -44,9 +54,6 @@ public class Task3 {
                 .collect(
                         toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
                                 LinkedHashMap::new));
-
-        for (String sor : sorted.keySet()) {
-            System.out.println(sor + " " + sorted.get(sor));
-        }
+        wordToCount = sorted;
     }
 }

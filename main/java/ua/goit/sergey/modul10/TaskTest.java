@@ -1,10 +1,8 @@
 package ua.goit.sergey.modul10;
 
-import java.io.IOException;
-
 public class TaskTest {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         System.out.println("\nПример первого задания. ");
         new Task1("./src/main/resources/text1.txt").selection();
 

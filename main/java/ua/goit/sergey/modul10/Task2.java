@@ -5,73 +5,61 @@ import java.util.Scanner;
 
 public class Task2 {
 
-    private final File txt;
-    private final File json;
+    private final File inputFile;
+    private final File outputFile;
 
-    public Task2(String txt, String json){
-        this(new File(txt), new File(json));
+    private StringBuilder sb;
+
+    public Task2(String inputFile, String outputFile){
+        this(new File(inputFile), new File(outputFile));
     }
 
-    public Task2 (File txt, File json){
-        this.txt=txt;
-        this.json=json;
+    public Task2 (File inputFile, File outputFile){
+        this.inputFile=inputFile;
+        this.outputFile=outputFile;
     }
 
-    public void conversion() throws IOException {
-        FileInputStream fileIS = new FileInputStream(txt);
-        File fileJson = new File(json.toURI());
-        checkFile(fileJson);
+    public void conversion() {
 
-        StringBuilder sb = new StringBuilder();
+        sb = new StringBuilder();
         sb.append("[\n");
-        Scanner scanner = new Scanner(fileIS);
-        String test = scanner.nextLine();
-        String[] first = test.split(" ");
-
-        while (scanner.hasNextLine()) {
-            sb.append("\t { \n");
-            String arr = scanner.nextLine();
-            String[] second = arr.split(" ");
-            for (int i = 0; i < first.length; i++) {
-                if (!new Scanner(first[i]).hasNextInt())
-                {
-                    sb.append("\"" + first[i] + "\" : ");
-                }
-                else sb.append(first[i] + " : ");
-                if (!isNumeric(second[i]) &&
-                    !second[i].equals("true") &&
-                    !second[i].equals("false"))
-                {
-                    sb.append("\"" + second[i] + "\" , \n");
-                }
-                else sb.append(second[i] + " , \n");
-                if (i == first.length - 1)
-                {
-                    sb.delete(sb.length() - 3, sb.length());
-                    sb.append("\n \t }, \n");
+        try(Scanner scanner = new Scanner(inputFile)) {
+            String test = scanner.nextLine();
+            String[] first = test.split(" ");
+            while (scanner.hasNextLine()) {
+                sb.append("\t { \n");
+                String arr = scanner.nextLine();
+                String[] second = arr.split(" ");
+                for (int i = 0; i < first.length; i++) {
+                    if (!new Scanner(first[i]).hasNextInt()) {
+                        sb.append("\"" + first[i] + "\" : ");
+                    } else sb.append(first[i] + " : ");
+                    if (!isNumeric(second[i]) &&
+                            !second[i].equals("true") &&
+                            !second[i].equals("false")) {
+                        sb.append("\"" + second[i] + "\" , \n");
+                    } else sb.append(second[i] + " , \n");
+                    if (i == first.length - 1) {
+                        sb.delete(sb.length() - 3, sb.length());
+                        sb.append("\n \t }, \n");
+                    }
                 }
             }
+        }catch (IOException e){
+            System.out.println(e.getMessage());
         }
         sb.delete(sb.length() - 3, sb.length());
         sb.append("\n ]");
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileJson)))
-        {
-            bufferedWriter.write(sb.toString());
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-        System.out.println("Выполнено!");
-        fileIS.close();
+        outputFileSave();
     }
 
-    private static void checkFile (File file) {
-        if (!file.exists()) {
-            file.getParentFile().mkdirs();
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
-            }
+        private void outputFileSave(){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(outputFile.toURI()))))
+        {
+            bufferedWriter.write(sb.toString());
+            System.out.println("Выполнено!");
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
     }
 
