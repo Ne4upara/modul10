@@ -17,7 +17,7 @@ public class Task2 {
         this.json=json;
     }
 
-    public void conversion() throws FileNotFoundException {
+    public void conversion() throws IOException {
         FileInputStream fileIS = new FileInputStream(txt);
         File fileJson = new File(json.toURI());
         checkFile(fileJson);
@@ -61,6 +61,7 @@ public class Task2 {
             System.err.println(e.getMessage());
         }
         System.out.println("Выполнено!");
+        fileIS.close();
     }
 
     private static void checkFile (File file) {

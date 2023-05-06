@@ -12,6 +12,6 @@ public class TaskTest {
         new Task2("./src/main/resources/text2.txt","./src/main/resources/user.json").conversion();
 
         System.out.println("\n\nПример третьего задания. ");
-        new Task3("./src/main/resources/text1.txt").searchWord();
+        new Task3("./src/main/resources/text3.txt").searchWord();
     }
 }

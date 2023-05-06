@@ -17,7 +17,6 @@ public class Task3 {
     }
 
     public void searchWord() throws IOException {
-        File file = new File("./src/main/resources/text3.txt");
         Map<String, Integer> wordToCount = new HashMap<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
